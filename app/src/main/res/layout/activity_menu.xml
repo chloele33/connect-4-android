@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MenuActivity">
+
+    <LinearLayout
+        android:gravity="center_vertical|center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/colorPrimaryDark">
+
+        <Button
+            android:id="@+id/buttonStartGame"
+            android:layout_width="294dp"
+            android:layout_height="94dp"
+            android:background="@drawable/button"
+            android:text="@string/start_game"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="bold" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="40dp" />
+
+        <Button
+            android:id="@+id/buttonLeaderboard"
+            android:layout_width="294dp"
+            android:layout_height="94dp"
+            android:background="@drawable/button"
+            android:text="@string/leaderboard"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="bold" />
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

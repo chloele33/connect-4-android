@@ -20,7 +20,7 @@ class SplashActivity : AppCompatActivity() {
         /** Hander to delay mainActivity for splash display length amount of seconds */
         Handler().postDelayed(Runnable {
             /* Create an Intent that will start the Menu-Activity. */
-            val mainIntent = Intent(applicationContext, MainActivity::class.java)
+            val mainIntent = Intent(applicationContext, MenuActivity::class.java)
             startActivity(mainIntent)
             finish()
         }, SPLASH_DISPLAY_LENGTH)
