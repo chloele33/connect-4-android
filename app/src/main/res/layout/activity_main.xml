@@ -94,61 +94,82 @@
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:background="@drawable/arrow" />
+                android:background="@drawable/arrow"
+                android:onClick="selectColumn"
+                android:text="0"
+                android:textColor="@color/colorPrimaryDark" />
 
             <Button
                 android:id="@+id/buttonCol2"
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
+                android:layout_toEndOf="@id/buttonCol1"
                 android:layout_toRightOf="@id/buttonCol1"
                 android:background="@drawable/arrow"
-                android:layout_toEndOf="@id/buttonCol1" />
+                android:onClick="selectColumn"
+                android:text="1"
+                android:textColor="@color/colorPrimaryDark" />
 
             <Button
                 android:id="@+id/buttonCol3"
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
+                android:layout_toEndOf="@id/buttonCol2"
                 android:layout_toRightOf="@id/buttonCol2"
                 android:background="@drawable/arrow"
-                android:layout_toEndOf="@id/buttonCol2" />
+                android:onClick="selectColumn"
+                android:text="2"
+                android:textColor="@color/colorPrimaryDark" />
 
             <Button
                 android:id="@+id/buttonCol4"
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
+                android:layout_toEndOf="@id/buttonCol3"
                 android:layout_toRightOf="@id/buttonCol3"
                 android:background="@drawable/arrow"
-                android:layout_toEndOf="@id/buttonCol3" />
+                android:onClick="selectColumn"
+                android:text="3"
+                android:textColor="@color/colorPrimaryDark" />
 
             <Button
                 android:id="@+id/buttonCol5"
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
+                android:layout_toEndOf="@id/buttonCol4"
                 android:layout_toRightOf="@id/buttonCol4"
                 android:background="@drawable/arrow"
-                android:layout_toEndOf="@id/buttonCol4" />
+                android:onClick="selectColumn"
+                android:text="4"
+                android:textColor="@color/colorPrimaryDark" />
 
             <Button
                 android:id="@+id/buttonCol6"
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
+                android:layout_toEndOf="@id/buttonCol5"
                 android:layout_toRightOf="@id/buttonCol5"
                 android:background="@drawable/arrow"
-                android:layout_toEndOf="@id/buttonCol5" />
+                android:onClick="selectColumn"
+                android:text="5"
+                android:textColor="@color/colorPrimaryDark" />
 
             <Button
                 android:id="@+id/buttonCol7"
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
+                android:layout_toEndOf="@id/buttonCol6"
                 android:layout_toRightOf="@id/buttonCol6"
                 android:background="@drawable/arrow"
-                android:layout_toEndOf="@id/buttonCol6" />
+                android:onClick="selectColumn"
+                android:text="6"
+                android:textColor="@color/colorPrimaryDark" />
 
 
             <Button
