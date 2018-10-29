@@ -1,5 +1,6 @@
 package edu.upenn.chloele.connect4
 
+import android.content.Intent
 import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -62,9 +63,11 @@ class MainActivity : AppCompatActivity() {
             if (_currPlayer == 1) {
                 _boardMatrix[-1 * (rowNum - 5)][colNum] = 1
                 if (checkIfWon(1)) {
-                    val toast = Toast.makeText(applicationContext,
-                            "PLAYER 1 WON", Toast.LENGTH_SHORT)
-                    toast.show()
+                    val mainIntent = Intent(applicationContext, ResultActivity::class.java)
+                    mainIntent.putExtra("WinnerName", _player1Name)
+                    mainIntent.putExtra("WinnerColor", _player1Color)
+                    startActivity(mainIntent)
+                    finish()
                 }
                 _currPlayer = 2
                 _currPlayerColor = _player2Color
@@ -73,9 +76,11 @@ class MainActivity : AppCompatActivity() {
             } else {
                 _boardMatrix[-1 * (rowNum - 5)][colNum] = 2
                 if (checkIfWon(2)) {
-                    val toast = Toast.makeText(applicationContext,
-                            "PLAYER 2 WON", Toast.LENGTH_SHORT)
-                    toast.show()
+                    val mainIntent = Intent(applicationContext, ResultActivity::class.java)
+                    mainIntent.putExtra("WinnerName", _player2Name)
+                    mainIntent.putExtra("WinnerColor", _player2Color)
+                    startActivity(mainIntent)
+                    finish()
                 }
                 _currPlayer = 1
                 _currPlayerColor = _player1Color
@@ -90,17 +95,17 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun checkIfWon(playerNum : Int) : Boolean {
+        for (row in 0 until 6) {
+            if (connect(playerNum, 1, 0, 0, row, 0)
+                    || connect(playerNum, 1, 1, 0, row, 0)
+                    || connect(playerNum, -1, 1, 6, row, 0)) {
+                return true
+            }
+        }
         for (col in 0 until 7) {
             if (connect(playerNum, 0, 1, col, 0, 0)
                     || connect(playerNum, 1, 1, col, 0, 0)
                     || connect(playerNum, -1, 1, col, 0, 0)) {
-                return true
-            }
-        }
-        for (row in 0 until 6) {
-            if (connect(playerNum, 1, 0, 0, row, 0)
-                    || connect(playerNum, 1, 1, 0, row, 0)
-                    || connect(playerNum, -1, 1, 7 - 1, row, 0)) {
                 return true
             }
         }
