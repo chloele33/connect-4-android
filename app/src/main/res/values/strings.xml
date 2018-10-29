@@ -9,4 +9,5 @@
     <string name="please_enter_players_names">Please Enter Players\' Names</string>
     <string name="enter_player_1_s_name">Enter Player 1\'s Name</string>
     <string name="enter_player_2_s_name">Enter Player 2\'s Name</string>
+    <string name="your_turn">Your Turn,</string>
 </resources>
