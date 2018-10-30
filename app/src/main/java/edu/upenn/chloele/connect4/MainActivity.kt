@@ -1,6 +1,8 @@
 package edu.upenn.chloele.connect4
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -63,6 +65,8 @@ class MainActivity : AppCompatActivity() {
             if (_currPlayer == 1) {
                 _boardMatrix[-1 * (rowNum - 5)][colNum] = 1
                 if (checkIfWon(1)) {
+                    logWinner(_player1Name, _player2Name)
+                    // redirect to winning splash
                     val mainIntent = Intent(applicationContext, ResultActivity::class.java)
                     mainIntent.putExtra("WinnerName", _player1Name)
                     mainIntent.putExtra("WinnerColor", _player1Color)
@@ -76,6 +80,8 @@ class MainActivity : AppCompatActivity() {
             } else {
                 _boardMatrix[-1 * (rowNum - 5)][colNum] = 2
                 if (checkIfWon(2)) {
+                    logWinner(_player2Name, _player1Name)
+                    // redirect to winning splash
                     val mainIntent = Intent(applicationContext, ResultActivity::class.java)
                     mainIntent.putExtra("WinnerName", _player2Name)
                     mainIntent.putExtra("WinnerColor", _player2Color)
@@ -90,8 +96,28 @@ class MainActivity : AppCompatActivity() {
             // check if won
             if (_count == 42) {
                 //you tied
+                val toast = Toast.makeText(applicationContext,
+                        "You tied!", Toast.LENGTH_SHORT)
+                toast.show()
+                val mainIntent = Intent(applicationContext, MenuActivity::class.java)
+                startActivity(mainIntent)
+                finish()
+                //log score
+                var SP = this.getSharedPreferences("SCORES", Context.MODE_PRIVATE)
+                var edit = SP.edit()
+                edit.putInt(_player1Name, SP.getInt(_player1Name, 0))
+                edit.putInt(_player2Name, SP.getInt(_player1Name, 0))
+                edit.commit()
             }
         }
+    }
+
+    private fun logWinner(winner:String, loser:String) {
+        var SP = this.getSharedPreferences("SCORES", Context.MODE_PRIVATE)
+        var edit = SP.edit()
+        edit.putInt(winner, SP.getInt(winner, 0) + 1)
+        edit.putInt(loser, SP.getInt(loser, 0))
+        edit.commit()
     }
 
     private fun checkIfWon(playerNum : Int) : Boolean {

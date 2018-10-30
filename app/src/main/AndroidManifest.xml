@@ -29,6 +29,9 @@
         <activity
             android:name=".ResultActivity">
         </activity>
+        <activity
+            android:name=".LeaderboardActivity">
+        </activity>
     </application>
 
 </manifest>

@@ -18,5 +18,11 @@ class MenuActivity : AppCompatActivity(){
             startActivity(mainIntent)
             finish()
         })
+
+        buttonLeaderboard.setOnClickListener(View.OnClickListener {
+            val mainIntent = Intent(applicationContext, LeaderboardActivity::class.java)
+            startActivity(mainIntent)
+            finish()
+        })
     }
 }
