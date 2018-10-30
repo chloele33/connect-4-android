@@ -16,13 +16,11 @@ class MenuActivity : AppCompatActivity(){
         buttonStartGame.setOnClickListener(View.OnClickListener {
             val mainIntent = Intent(applicationContext, NameActivity::class.java)
             startActivity(mainIntent)
-            finish()
         })
 
         buttonLeaderboard.setOnClickListener(View.OnClickListener {
             val mainIntent = Intent(applicationContext, LeaderboardActivity::class.java)
             startActivity(mainIntent)
-            finish()
         })
     }
 }
