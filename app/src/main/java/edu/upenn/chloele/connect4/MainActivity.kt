@@ -13,7 +13,9 @@ import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 import android.graphics.LightingColorFilter
 import android.graphics.PorterDuff.Mode
-
+import android.R.menu
+import android.view.Menu
+import android.view.MenuItem
 
 
 class MainActivity : AppCompatActivity() {
@@ -42,6 +44,29 @@ class MainActivity : AppCompatActivity() {
         _currPlayerColor = _player1Color
 
 
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        menuInflater.inflate(R.menu.main_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        // Handle item selection
+        return when (item.itemId) {
+            R.id.leaderboard -> {
+                val mainIntent = Intent(applicationContext, LeaderboardActivity::class.java)
+                startActivity(mainIntent)
+                true
+            }
+            R.id.menu -> {
+                val mainIntent = Intent(applicationContext, MenuActivity::class.java)
+                startActivity(mainIntent)
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 
     fun selectColumn(view: View) {

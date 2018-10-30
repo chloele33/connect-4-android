@@ -11,8 +11,8 @@ import android.view.View
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_leaderboard.*
 import android.content.Intent
-
-
+import android.view.Menu
+import android.view.MenuItem
 
 
 class LeaderboardActivity: AppCompatActivity() {
@@ -60,5 +60,28 @@ class LeaderboardActivity: AppCompatActivity() {
 
             dialog.show()
         })
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        menuInflater.inflate(R.menu.main_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        // Handle item selection
+        return when (item.itemId) {
+            R.id.leaderboard -> {
+                val mainIntent = Intent(applicationContext, LeaderboardActivity::class.java)
+                startActivity(mainIntent)
+                true
+            }
+            R.id.menu -> {
+                val mainIntent = Intent(applicationContext, MenuActivity::class.java)
+                startActivity(mainIntent)
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 }
